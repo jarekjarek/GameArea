@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Add</span> Review:</h3><br />
+	</div>
+		<div id="topka"><h:form id="addnform">
+			<div id="maincontent">
+			<div class="quote"><font color="red"> <h:messages
+				showDetail="#{true}" showSummary="#{false}" /> <f:event
+				type="postValidate" listener="#{userBean.validateTELEPHONE}"
+				showDetail="#{true}" showSummary="#{true}" /></font></div>
+			</div>
+			<h2 class="first"><h:panelGrid columns="2"
+				rendered="#{userBean.check}">
+
+				<h:outputText value="Game Title: " required="true" />
+				<h:inputText id="title" value="#{noticesBean.notices1.title}" />
+
+
+				<h:outputText value="Content: " required="true" />
+				<h:inputTextarea cols="100" rows="20" id="content"
+					value="#{noticesBean.notices1.content}" />
+
+				<h:outputText value="Email: " required="true" />
+				<h:inputText id="contact" value="#{noticesBean.notices1.contact}" />
+
+				<h:outputText value="Telephone: " required="true" />
+				<h:inputText id="telephone"
+					value="#{noticesBean.notices1.telephone}" />
+				<br />
+				<br />
+
+				<h:commandButton value=" Add Review" action="#{noticesBean.add}" />
+
+			</h:panelGrid></h2>
+		</h:form></div>
+		</center>
+	</ui:define>
+
+</ui:composition>

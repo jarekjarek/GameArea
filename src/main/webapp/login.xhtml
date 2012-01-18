@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Log</span> In:</h3><br />
+	</div>
+		<div id="topka"><h:form id="loginform">
+
+			<h2 class="first"><h:panelGrid columns="2"
+				rendered="#{userBean.check1}">
+
+
+				<h:outputText value="Login: " />
+				<h:inputText id="login" value="#{userBean.user.login}"
+					validate="false" style="color: Black; background: Grey;" />
+
+				<h:outputText value="Password: " />
+				<h:inputSecret id="password" value="#{userBean.user.password}"
+					validate="false" style="color: Black; background: Grey;" />
+				<h:commandButton value=" Let me in! " action="#{userBean.login}" />
+				<h:commandButton value=" Reset" type="reset" />
+			</h:panelGrid></h2>
+		</h:form></div>
+		</center>
+	</ui:define>
+
+</ui:composition>

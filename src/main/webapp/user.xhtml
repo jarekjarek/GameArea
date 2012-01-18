@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+<center>
+	<div id="bodyLeftPan">
+	<h3><span>User</span> Info:</h3><br />
+	</div>
+
+		<div id="maincontent">
+		<h:panelGrid rendered="#{userBean.check1}">
+		</h:panelGrid> <h:panelGrid rendered="#{userBean.check}">
+			<h:form>
+				<div class="quote"><br />
+				<br />
+				<strong>Basic information about user: </strong><br />
+				<hr />
+
+				<strong><h:outputText value="First Name" />: </strong><h:outputText
+					value="#{showUserBean.selectedUser.fname}" /><br />
+
+				<strong><h:outputText value="Last Name" />: </strong><h:outputText
+					value="#{showUserBean.selectedUser.lname}" /> <br />
+
+
+				<strong><h:outputText value="Login" />: </strong><h:outputText
+					value="#{showUserBean.selectedUser.login}" /> <br />
+				<strong><h:outputText value="Date Of Birth" />: </strong><h:outputText
+					value="#{showUserBean.selectedUser.dob}" /><br />
+				<br />
+				<strong>Reviews which wrote:</strong><br />
+				<br />
+				<h:dataTable id="maincontent" styleClass="maincontent" var="nbu"
+					value="#{showUserBean.allNotices}">
+					<h:column>
+						<b> <h:outputLink style="text-decoration: none; outline:none"
+							value="/show.jsf?notice=#{nbu.id}">
+							<h:outputText value="#{nbu.title}" />
+						</h:outputLink> </b>
+					</h:column>
+					<br />
+					<br />
+				</h:dataTable></div>
+			</h:form>
+		</h:panelGrid> <br />
+		<br />
+		</div>
+		<hr />
+		<br />
+	</center>
+	</ui:define>
+
+</ui:composition>

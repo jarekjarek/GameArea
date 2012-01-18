@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Your</span> Account:</h3><br />
+	</div>
+
+		<div id="topka"><h:form id="registerform">
+
+			<h2 class="first">
+			<div id="maincontent">
+			<div class="quote"><font color="red"> <h:messages
+				showDetail="#{true}" showSummary="#{false}" /> <f:event
+				type="postValidate" listener="#{userBean.validateDOB}"
+				showDetail="#{true}" showSummary="#{true}" /> <f:event
+				type="postValidate" listener="#{userBean.validateTELEPHONE}"
+				showDetail="#{true}" showSummary="#{true}" /></font></div>
+			</div>
+
+			<h:panelGrid columns="2" rendered="#{userBean.check}">
+			<h:panelGrid columns="2" rendered="#{userBean.settings}">
+				<h:outputText value="First Name " required="true" />
+				<h:inputText id="fname" value="#{userBean.user.fname}" />
+
+				<h:outputText value="Last Name: " required="true" />
+				<h:inputText id="lname" value="#{userBean.user.lname}" />
+
+				<h:outputText value="Telephone: " required="true" />
+				<h:inputText id="telephone" value="#{userBean.user.telephone}" />
+
+				<h:outputText value="Date of Birth: " />
+				<h:inputText id="dob" value="#{userBean.user.dob}" />
+
+				<h:outputText value="Email: " />
+				<h:inputText id="email" value="#{userBean.user.email}" />
+
+				<h:outputText value="Password: " />
+				<h:inputSecret id="password" value="#{userBean.user.password}" />
+				<center><h:commandButton value=" Update my information "
+					action="#{userBean.update}" /><br />
+				<h:commandButton value=" Reset" type="reset" /><br />
+				<h:commandButton value=" Delete my account "
+					action="#{userBean.delete}" /></center>
+			</h:panelGrid>
+			</h:panelGrid></h2>
+		</h:form></div>
+			</center>
+	</ui:define>
+
+</ui:composition>

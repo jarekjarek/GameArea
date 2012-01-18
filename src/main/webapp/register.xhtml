@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Joint</span> To Us:</h3><br />
+	</div>
+		<f:view contentType="text/html">
+			<h:form id="registerform">
+				<div id="maincontent">
+				<div class="quote"><font color="red"> <h:messages
+					showDetail="#{true}" showSummary="#{false}" /> <f:event
+					type="postValidate" listener="#{userBean.validateTELEPHONE}"
+					showDetail="#{true}" showSummary="#{true}" /> <f:event
+					type="postValidate" listener="#{userBean.validateDOB}"
+					showDetail="#{true}" showSummary="#{false}" /> <f:event
+					type="postValidate" listener="#{userBean.validatePassConfirm}"
+					showDetail="#{true}" showSummary="#{true}" /> </font> <h:panelGrid
+					columns="2" rendered="#{userBean.check1}">
+
+
+					<h:outputText styleClass="floatRight"
+						value="First Name: " required="true" />
+					<h:inputText id="fname" value="#{userBean.user.fname}" />
+
+
+					<h:outputText styleClass="floatRight"
+						value="Last Name: " required="true" />
+					<h:inputText id="lname" value="#{userBean.user.lname}" />
+
+
+					<h:outputText styleClass="floatRight"
+						value="Telephone: " required="true" />
+					 <h:inputText id="telephone" value="#{userBean.user.telephone}" />
+
+					<h:outputText styleClass="floatRight" value="Day of Birth: "
+						required="true" />
+					 <h:inputText id="dob" value="#{userBean.user.dob}" />
+
+					<h:outputText styleClass="floatRight"
+						value="Email: " />
+					<h:inputText id="email" value="#{userBean.user.email}" />
+
+					<h:outputText styleClass="floatRight"
+						value="Login: " />
+					<h:inputText id="login" value="#{userBean.user.login}" />
+
+					<h:outputText styleClass="floatRight"
+						value="Passowrd: " />
+					<h:inputSecret id="password" value="#{userBean.user.password}"
+						style="color: Black; background: Red;" />
+
+					<h:outputText styleClass="floatRight"
+						value="Repeat password: " />
+					<h:inputSecret id="passwordconfirm" value="#{userBean.passconfirm}"
+						style="color: Black; background: Red;" />
+
+					<center><h:commandButton value="Register me"
+						action="#{userBean.register}" /></center>
+					<h:commandButton value=" Reset" type="reset" />
+				</h:panelGrid></div>
+				</div>
+			</h:form>
+		</f:view>
+		</center>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+	<center>
+
+		<div id="topka">
+		<h:form rendered="#{userBean.check2}">
+			<div id="bodyLeftPan">
+	<h3><span>Admin</span> Actions:</h3><br /><br />
+	<a href="users.jsf"><h3><span>=== Users</span> Manager ===</h3></a><br />
+	<a href="pending.jsf"><h3><span>=== Pending</span> Reviews ===</h3></a><br />
+	<a href="deletelist.jsf"><h3><span>=== Delete</span> Review ===</h3></a><br />
+	</div>
+		</h:form>
+		<h:form rendered="#{!userBean.check2}">
+		<div id="bodyLeftPan">
+		<h3><span>You don't have</span> permisson.</h3><br />
+		</div>
+		</h:form>
+		</div>
+
+</center>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<center><h:panelGrid rendered="#{userBean.check}">
+		<div id="bodyLeftPan">
+	<h3><span>Delete</span> Reviews:</h3><br />
+	</div>
+			<h:form>
+				<div id="maincontent"><h:dataTable id="maincontent"
+					styleClass="maincontent" var="notice"
+					value="#{noticesBean.myNotices}">
+
+
+
+					<h:column>
+						<div id="maincontent">
+						<h2 class="first"><h:outputText value="#{notice.title}" />
+
+						<h3><h:commandButton value=" Delete Review "
+							action="#{noticesBean.deleteNotice}" /></h3>
+						</h2>
+
+						
+						</div>
+						<hr />
+						<br />
+					</h:column>
+
+
+
+
+				</h:dataTable></div>
+			</h:form>
+		</h:panelGrid></center>
+	</ui:define>
+
+
+</ui:composition>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Users</span> Manager:</h3><br />
+	</div>
+		<h:form rendered="#{userBean.check2}">
+			<div id="maincontent"><h:dataTable id="maincontent"
+				styleClass="maincontent" var="users" value="#{userBean.allUsers}">
+
+
+
+				<h:column>
+					<div id="maincontent"><h:outputLink
+						style="text-decoration: none; outline:none"
+						value="/user.jsf?login=#{users.login}">
+						<h:outputText value="#{users.login}" />
+
+					</h:outputLink>
+					<div class="quote"><h:commandLink
+						style="text-decoration: none; outline:none"
+						action="#{userBean.adelete}">
+						<h:outputText value="Delete || " />
+					</h:commandLink> <h:commandLink style="text-decoration: none; outline:none"
+						action="#{userBean.aadmin}">
+						<h:outputText value="Grant || " />
+					</h:commandLink> <h:commandLink style="text-decoration: none; outline:none"
+						action="#{userBean.auser}">
+						<h:outputText value="Revoke" />
+						</h:commandLink>
+				<br />
+
+					<br />
+					<strong><h:outputText value="First Name" />: </strong><h:outputText
+						value="#{users.fname}" /><br />
+					<strong><h:outputText value="Last Name" />: </strong><h:outputText
+						value="#{users.lname}" /><br />
+					<strong><h:outputText value="Telephone" />: </strong><h:outputText
+						value="#{users.telephone}" /><br />
+					<strong><h:outputText value="Day Of Birth" />: </strong><h:outputText
+						value="#{users.dob}" /><br />
+					<strong><h:outputText value="Email" />: </strong><h:outputText
+						value="#{users.email}" /><br />
+					<strong><h:outputText value="Login" />: </strong><h:outputText
+						value="#{users.login}" /><br />
+
+					</div>
+					</div>
+					<hr />
+					<br />
+				</h:column>
+
+
+
+
+			</h:dataTable></div>
+		</h:form>
+		</center>
+	</ui:define>
+
+
+</ui:composition>

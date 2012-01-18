@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+<div id="bodyLeftPan">
+	<h3><span><h:outputText value="#{showBean.selectedNotice.title}" /></span> Review:</h3>
+	</div>
+<br />
+		<div class="quote"><small class="data"> <h:outputText
+			value=" Add " /> <h:outputLink
+						style="text-decoration: none; outline:none"
+						value="/user.jsf?login=#{showBean.selectedNotice.uname}">
+						<h:outputText value="#{showBean.selectedNotice.uname}" />
+					</h:outputLink>, <h:outputText
+			value="#{showBean.selectedNotice.date}" /> </small><br /><br /><h:outputText
+			value="#{showBean.selectedNotice.content}" /> <br />
+		<br />
+		<hr />
+		<strong><h:outputText value="Kontakt" />: </strong><h:outputText
+			value="#{showBean.selectedNotice.contact}" /><br />
+
+		<strong><h:outputText value="Telephone" />: </strong><h:outputText
+			value="#{showBean.selectedNotice.telephone}" /> <br />
+		<strong><h:outputText value="Votes" />: </strong><h:outputText
+			value="#{showBean.selectedNotice.vote}" /><br />
+		<br />
+		<h2 class="first"><h:panelGrid rendered="#{userBean.check1}">
+			<h:outputText value="You have to be logged to vote" />
+
+
+		</h:panelGrid></h2>
+		<h:panelGrid rendered="#{userBean.check}">
+			<p:growl id="growl" showDetail="true" />
+			<h:form>
+				<h:panelGrid rendered="#{showBean.checkVotes}">
+					<p:fieldset legend="Vote" toggleable="true" toggleSpeed="500"
+						onToggleUpdate="growl" onstart="false">
+						<h2 class="first"><b>
+						<p>
+						<h3><h:outputText value="Vote" />:</h3>
+						</p>
+						<br />
+						</b> <h:commandLink style="text-decoration: none; outline:none"
+							action="#{showBean.vrox}">
+							<f:param value="#{showBean.selectedNotice.id}" name="notice" />
+							<h3><font color="green"><h:outputText
+								value="Plus +" /></font></h3>
+						</h:commandLink> <h:commandLink style="text-decoration: none; outline:none"
+							action="#{showBean.vsux}">
+							<f:param value="#{showBean.selectedNotice.id}" name="notice" />
+							<h3><font color="red"><h:outputText
+								value="Minus -" /></font></h3>
+						</h:commandLink><br />
+						</h2>
+					</p:fieldset>
+				</h:panelGrid>
+
+
+				<h:panelGrid rendered="#{!showBean.checkVotes}">
+					<p:fieldset legend="Ocen" toggleable="true" toggleSpeed="500"
+						onToggleUpdate="growl" onstart="false">
+						<h2 class="first">
+						<p>
+						<h3><h:outputText value="You voted." /></h3>
+						</p>
+						</h2>
+					</p:fieldset>
+				</h:panelGrid>
+			</h:form>
+
+
+		</h:panelGrid></div>
+
+
+		
+		<hr />
+		<br />
+		</center>
+	</ui:define>
+
+</ui:composition>

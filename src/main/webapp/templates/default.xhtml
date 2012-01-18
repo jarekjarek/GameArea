@@ -1,0 +1,38 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Game Area // Jaroslaw Gryczko
+	</title>
+	<link rel="icon" type="image/png"
+		href="http://g00n.pl/media/images/favicon.png" />
+
+</h:head>
+<h:body>
+<h:outputStylesheet library="css" name="default.css" target="body" />
+	<div id="topPan">
+	<p>Game Area</p>
+	
+		
+  <div id="topContactPan">
+  </div>
+  
+  <ui:insert name="menu">
+		<div id="topka"><h:panelGrid rendered="#{userBean.check}">
+			<ui:include src="/views/main/menu.xhtml" />
+		</h:panelGrid> <h:panelGrid rendered="#{userBean.check1}">
+			<ui:include src="/views/main/menuguest.xhtml" />
+		</h:panelGrid></div>
+	</ui:insert>
+</div>
+<ui:insert name="content" />
+
+
+
+
+</h:body>
+</html>

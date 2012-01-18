@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Pending</span> Reviews:</h3><br />
+	</div>
+		<h:form>
+			<h:dataTable id="maincontent"
+				styleClass="maincontent" var="notice"
+				value="#{noticesBean.pendingNotices}">
+				<h:column>
+				
+				
+						<h4 class="first">
+						<h:outputLink
+						style="text-decoration: none; outline:none"
+						value="/show.jsf?notice=#{notice.id}">
+						<h:outputText value="#{notice.title}" />
+						</h:outputLink><br />
+						Author: <a href="users.jsf?login=#{notice.uname}"><h:outputText value="#{notice.uname}" /></a>
+						Date: <h:outputText value="#{notice.date}" /><br />
+						<h:commandButton value="Accept"
+							action="#{noticesBean.acceptNotice}" />
+							<h:commandButton value="Drop"
+							action="#{noticesBean.dropNotice}" />
+						</h4>
+
+						
+						
+						<hr />
+						<br />
+				</h:column>
+
+
+
+
+			</h:dataTable>
+		</h:form>
+		</center>
+	</ui:define>
+
+
+</ui:composition>

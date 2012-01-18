@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+	<center>
+	<div id="bodyLeftPan">
+	<h3><span>Logout</span> man!</h3><br />
+	</div>
+
+		<div id="topka"><h:form id="registerform">
+
+			<h2 class="first">
+
+			<h:panelGrid columns="2" rendered="#{userBean.check}">
+			<h:panelGrid columns="2" rendered="#{userBean.logout}">
+			<h:outputText value="Thanks for use our site. Now You are not logged." required="true" />
+			</h:panelGrid>
+			</h:panelGrid></h2>
+		</h:form></div>
+			</center>
+	</ui:define>
+
+</ui:composition>
